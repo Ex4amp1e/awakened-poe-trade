@@ -9,6 +9,8 @@
         :filter="{ disabled: false }" :text="t('item.map_foil_reward', [filters.mapCompletionReward.name])" />
       <filter-btn-logical v-if="filters.scryingMapArea" readonly
         :filter="{ disabled: false }" :text="filters.scryingMapArea" />
+      <filter-btn-logical v-if="filters.chartArea" readonly
+        :filter="{ disabled: false }" :text="filters.chartArea" />
       <filter-btn-numeric v-if="filters.areaLevel"
         :filter="filters.areaLevel" :name="t('item.area_level')" />
       <filter-btn-numeric v-if="filters.heistWingsRevealed"

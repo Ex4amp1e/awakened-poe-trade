@@ -71,6 +71,7 @@ export interface ItemFilters {
     nameTrade: string
   }
   scryingMapArea?: string
+  chartArea?: string
   itemLevel?: FilterNumeric
   stackSize?: FilterNumeric
   unidentified?: {
@@ -144,6 +145,7 @@ const _INTERNAL_TRADE_IDS = [
   'item.map_item_quantity',
   'item.map_item_rarity',
   'item.map_pack_size',
+  'item.chart_sulphur',
   'item.heist_job_lockpicking',
   'item.heist_job_bruteforce',
   'item.heist_job_perception',

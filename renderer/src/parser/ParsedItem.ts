@@ -64,6 +64,7 @@ export interface ParsedItem {
   logbookAreaMods?: ParsedModifier[][]
   sentinelCharge?: number
   mapArea?: BaseType
+  chartSulphur?: number
   isSynthesised?: boolean
   isFractured?: boolean
   isVeiled?: boolean

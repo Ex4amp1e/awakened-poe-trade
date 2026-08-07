@@ -1,5 +1,6 @@
 import { stat, pseudoStatByRef } from '@/assets/data'
 import { ItemRarity } from '@/parser/ParsedItem'
+import { ItemCategory } from '@/parser/meta'
 import { ModifierType } from '@/parser/modifiers'
 import { FiltersCreationContext } from '../create-stat-filters'
 import { noSourcePseudoToFilter, propToFilter } from './item-property'
@@ -20,6 +21,11 @@ const VALDO_LETHAL_STATS = [
 export function mapProps (ctx: FiltersCreationContext): void {
   const { item } = ctx
   if (!item.map || item.mapBlighted || item.mapCompletionReward || item.rarity === ItemRarity.Unique) return
+
+  if (item.category === ItemCategory.Chart) {
+    chartProps(ctx)
+    return
+  }
 
   const hasMoreDrops = Boolean(item.map.moreMaps || item.map.moreScarabs || item.map.moreCurrency || item.map.moreDivCards)
 
@@ -89,6 +95,47 @@ export function mapProps (ctx: FiltersCreationContext): void {
       roll: { min: 0, max: 8, value: explicitMods.length },
       disabled: false
     }, { ...ctx, searchInRange: 0 }))
+  }
+}
+
+function chartProps (ctx: FiltersCreationContext): void {
+  const { map, chartSulphur } = ctx.item
+
+  if (chartSulphur) {
+    ctx.filters.push(propToFilter({
+      ref: "Dead Man's Sulphur: +#%",
+      tradeId: 'item.chart_sulphur',
+      roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: chartSulphur },
+      sources: [],
+      disabled: false
+    }, ctx))
+  }
+  if (map!.itemQuantity) {
+    ctx.filters.push(propToFilter({
+      ref: 'Item Quantity: +#%',
+      tradeId: 'item.map_item_quantity',
+      roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: map!.itemQuantity },
+      sources: [],
+      disabled: true
+    }, ctx))
+  }
+  if (map!.itemRarity) {
+    ctx.filters.push(propToFilter({
+      ref: 'Item Rarity: +#%',
+      tradeId: 'item.map_item_rarity',
+      roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: map!.itemRarity },
+      sources: [],
+      disabled: true
+    }, ctx))
+  }
+  if (map!.packSize) {
+    ctx.filters.push(propToFilter({
+      ref: 'Monster Pack Size: +#%',
+      tradeId: 'item.map_pack_size',
+      roll: { min: 0, max: Number.MAX_SAFE_INTEGER, value: map!.packSize },
+      sources: [],
+      disabled: true
+    }, ctx))
   }
 }
 

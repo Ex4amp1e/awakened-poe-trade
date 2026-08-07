@@ -7711,6 +7711,7 @@
 {"ref":"Voltaxic Sulphite Veins and Chests in your Maps have #% chance to contain double Sulphite","better":1,"matchers":[{"string":"你地圖中的魔暴硫酸礦脈和寶箱，有 #% 機率含有 2 倍硫酸"}],"trade":{"ids":{"explicit":["explicit.stat_1174549622"]}}}
 {"ref":"Voracious Flame","better":1,"matchers":[{"string":"貪婪惡火"}],"trade":{"ids":{"explicit":["explicit.stat_3458351769"]}}}
 {"ref":"Vorici's Veiled","better":0,"matchers":[{"string":"瓦里西的隱匿"}],"trade":{"ids":{"veiled":["veiled.mod_47933"]}}}
+{"ref":"Voyage Modifier will be revealed once Charted","better":0,"matchers":[{"string":"航程詞綴會於測繪後揭露"}],"trade":{"ids":{"implicit":["implicit.stat_3582759801"]}}}
 {"ref":"Vulnerability has no Reservation if Cast as an Aura","better":1,"matchers":[{"string":"若脆弱以光環施放沒有保留"}],"trade":{"ids":{"explicit":["explicit.stat_531868030"]}}}
 {"ref":"Warcries cannot Exert Travel Skills","better":1,"matchers":[{"string":"戰吼不能竭盡快行技能"}],"trade":{"ids":{"explicit":["explicit.stat_2174134106"],"fractured":["fractured.stat_2174134106"],"crafted":["crafted.stat_2174134106"]}}}
 {"ref":"Warcries Cost +#% of Life","better":1,"matchers":[{"string":"戰吼消耗 #% 的生命"}],"trade":{"ids":{"explicit":["explicit.stat_1427553227"]}}}

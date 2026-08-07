@@ -65,6 +65,7 @@
     "stock": "Stock: {0}",
     "map_tier": "Map Tier: {0}",
     "area_level": "Area Level: {0}",
+    "chart_sulphur": "Dead Man's Sulphur: {0}%",
     "heist_job_lockpicking": "Requires Lockpicking (Level {0})",
     "heist_job_bruteforce": "Requires Brute Force (Level {0})",
     "heist_job_perception": "Requires Perception (Level {0})",
@@ -153,7 +154,8 @@
     "tincture": "Tincture",
     "azmeri_charm": "Charm",
     "idol": "Idol",
-    "graft": "Graft"
+    "graft": "Graft",
+    "chart": "Chart"
   },
   "filters": {
     "selected_some": "{0} of {1}, stats",

@@ -55,6 +55,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseFoil,
   parseInfluence,
   parseMap,
+  parseChart,
   parseSockets,
   parseHeistContract,
   parseHeistBlueprint,
@@ -840,6 +841,33 @@ function parseScryingOrb (section: string[], item: ParsedItem) {
     }
   }
   return 'SECTION_SKIPPED'
+}
+
+function parseChart (section: string[], item: ParsedItem) {
+  if (item.category !== ItemCategory.Chart) return 'PARSER_SKIPPED'
+  if (!section.some(line => line.startsWith(_$.AREA_LEVEL))) return 'SECTION_SKIPPED'
+
+  const areaInfo = ITEM_BY_TRANSLATED('AREA', section[0])
+  if (areaInfo) {
+    item.mapArea = areaInfo[0]
+  }
+
+  parseAreaLevelNested(section, item)
+
+  item.map = { tier: undefined }
+  for (const line of section) {
+    if (line.startsWith(_$.MAP_ITEM_QUANTITY)) {
+      item.map.itemQuantity = parseInt(line.slice(_$.MAP_ITEM_QUANTITY.length), 10)
+    } else if (line.startsWith(_$.MAP_ITEM_RARITY)) {
+      item.map.itemRarity = parseInt(line.slice(_$.MAP_ITEM_RARITY.length), 10)
+    } else if (line.startsWith(_$.MAP_MONSTER_PACK_SIZE)) {
+      item.map.packSize = parseInt(line.slice(_$.MAP_MONSTER_PACK_SIZE.length), 10)
+    } else if (line.startsWith(_$.CHART_SULPHUR)) {
+      item.chartSulphur = parseInt(line.slice(_$.CHART_SULPHUR.length), 10)
+    }
+  }
+
+  return 'SECTION_PARSED'
 }
 
 function parseSynthesised (section: string[], item: ParserState) {

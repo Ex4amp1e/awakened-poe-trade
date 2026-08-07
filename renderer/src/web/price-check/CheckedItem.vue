@@ -128,6 +128,7 @@ export default defineComponent({
         doSearch.value = Boolean(
           (item.rarity === ItemRarity.Unique) ||
           (item.category === ItemCategory.Map) ||
+          (item.category === ItemCategory.Chart) ||
           (item.category === ItemCategory.HeistContract) ||
           (item.category === ItemCategory.HeistBlueprint) ||
           (item.category === ItemCategory.SanctumRelic) ||

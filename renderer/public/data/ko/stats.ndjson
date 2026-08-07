@@ -7709,6 +7709,7 @@
 {"ref":"Voltaxic Sulphite Veins and Chests in your Maps have #% chance to contain double Sulphite","better":1,"matchers":[{"string":"지도 내의 전도성 아황산염 광맥과 상자에 아황산염이 2배로 들어 있을 확률 #%"}],"trade":{"ids":{"explicit":["explicit.stat_1174549622"]}}}
 {"ref":"Voracious Flame","better":1,"matchers":[{"string":"탐욕적인 화염"}],"trade":{"ids":{"explicit":["explicit.stat_3458351769"]}}}
 {"ref":"Vorici's Veiled","better":0,"matchers":[{"string":"보리치의 장막의"}],"trade":{"ids":{"veiled":["veiled.mod_47933"]}}}
+{"ref":"Voyage Modifier will be revealed once Charted","better":0,"matchers":[{"string":"해도를 기록하면 항해 속성이 드러남"}],"trade":{"ids":{"implicit":["implicit.stat_3582759801"]}}}
 {"ref":"Vulnerability has no Reservation if Cast as an Aura","better":1,"matchers":[{"string":"취약성이 오라의 형태로 시전되는 경우 점유 없음"}],"trade":{"ids":{"explicit":["explicit.stat_531868030"]}}}
 {"ref":"Warcries cannot Exert Travel Skills","better":1,"matchers":[{"string":"함성이 이동 전용 스킬을 전력 공격으로 사용하지 않음"}],"trade":{"ids":{"explicit":["explicit.stat_2174134106"],"fractured":["fractured.stat_2174134106"],"crafted":["crafted.stat_2174134106"]}}}
 {"ref":"Warcries Cost +#% of Life","better":1,"matchers":[{"string":"함성의 생명력 소모량 #%"}],"trade":{"ids":{"explicit":["explicit.stat_1427553227"]}}}
