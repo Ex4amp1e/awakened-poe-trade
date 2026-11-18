@@ -250,6 +250,9 @@ function parseAreaPropNested (line: string, item: ParsedItem): boolean {
   if (line.startsWith(_$.MAP_ITEM_QUANTITY)) {
     item.areaItemQuantity = parseInt(line.slice(_$.MAP_ITEM_QUANTITY.length), 10)
     return true
+  } else if (line.startsWith(_$.MAP_ATLAS_DROPS)) {
+    item.areaAtlasDrops = parseInt(line.slice(_$.MAP_ATLAS_DROPS.length), 10)
+    return true
   } else if (line.startsWith(_$.MAP_ITEM_RARITY)) {
     item.areaItemRarity = parseInt(line.slice(_$.MAP_ITEM_RARITY.length), 10)
     return true
@@ -271,8 +274,8 @@ function parseMap (section: string[], item: ParsedItem) {
     } else if (line.startsWith(_$.MAP_MORE_MAPS)) {
       item.mapMoreMaps = parseInt(line.slice(_$.MAP_MORE_MAPS.length), 10)
       isParsed = 'SECTION_PARSED'
-    } else if (line.startsWith(_$.MAP_MORE_SCARABS)) {
-      item.mapMoreScarabs = parseInt(line.slice(_$.MAP_MORE_SCARABS.length), 10)
+    } else if (line.startsWith(_$.MAP_MORE_THREADS)) {
+      item.mapMoreThreads = parseInt(line.slice(_$.MAP_MORE_THREADS.length), 10)
       isParsed = 'SECTION_PARSED'
     } else if (line.startsWith(_$.MAP_MORE_CURRENCY)) {
       item.mapMoreCurrency = parseInt(line.slice(_$.MAP_MORE_CURRENCY.length), 10)
@@ -377,7 +380,6 @@ function parseNamePlate (section: string[]) {
     name: name,
     baseType: baseType,
     isUnidentified: false,
-    isCorrupted: false,
     newMods: [],
     statsByType: [],
     unknownModifiers: [],
@@ -444,10 +446,13 @@ function parseInfluence (section: string[], item: ParsedItem) {
 
 function parseCorrupted (section: string[], item: ParsedItem) {
   if (section[0] === _$.CORRUPTED) {
-    item.isCorrupted = true
+    item.isCorrupted = {}
+    return 'SECTION_PARSED'
+  } else if (section[0] === _$.TWICE_CORRUPTED) {
+    item.isCorrupted = { twice: true }
     return 'SECTION_PARSED'
   } else if (section[0] === _$.UNMODIFIABLE) {
-    item.isCorrupted = true
+    item.isCorrupted = {}
     item.isUnmodifiable = true
     return 'SECTION_PARSED'
   }

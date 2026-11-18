@@ -31,6 +31,7 @@ export interface ItemFilters {
   whiteSockets?: FilterNumeric
   corrupted?: {
     value: boolean
+    twice: boolean
     exact?: boolean
   }
   fractured?: {
@@ -157,6 +158,7 @@ const _INTERNAL_TRADE_IDS = [
   'item.has_empty_modifier',
   'item.mercenary_6link',
   'item.map_item_quantity',
+  'item.map_atlas_drops',
   'item.map_item_rarity',
   'item.map_pack_size',
   'item.heist_job_lockpicking',
